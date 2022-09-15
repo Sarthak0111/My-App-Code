@@ -1,0 +1,71 @@
+import './App.css';
+import React, { useState } from 'react';
+
+import Navbar from './Components/Navbar';
+import TextForm from './Components/TextForm';
+import About from './Components/About';
+import Alert from './Components/Alert';
+
+function App() {
+
+  const [Mode, setMode] = useState('light');
+  const [alert, setAlert] = useState(null);
+
+  const toggleMode = () => {
+    if (Mode === 'light') {
+      setMode('dark');
+      document.body.style.backgroundColor = "#042743";
+      showAlert("Dark Mode has been enabled", "warning")
+      // document.title = 'My-App - Dark Mode';
+
+      // setInterval(() => {
+      //   document.title = 'My-App is Amazing'
+      // },2000);
+
+      // setInterval(() => {
+      //   document.title = 'My-App is Excellent'
+      // },1500);
+    }
+    else {
+      setMode('light');
+      document.body.style.backgroundColor = "white";
+      showAlert("Light Mode has been enabled", "warning")
+      // document.title = 'My-App - Light Mode';
+    }
+  }
+  const showAlert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type
+    })
+
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
+  }
+
+  return (
+    <>
+
+      <Navbar title="My-App" Mode={Mode} toggleMode={toggleMode} />
+      {/* <Navbar title = "My-App" Home = "Home"/> */}
+      {/* <Navbar/> */}
+        
+        <Alert alert={alert} />
+        <div className="container my-4">
+
+
+
+
+
+            {<TextForm showAlert={showAlert} heading="Enter The Text Below to Analyze" Mode={Mode} />}
+
+              <About />
+
+
+        </div>
+    </>
+  );
+}
+
+export default App;

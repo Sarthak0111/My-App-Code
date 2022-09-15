@@ -1,0 +1,9 @@
+const a = "Harry";
+const b = "Rahul";
+const c = "Harmit";
+const d = "Priyanka";
+
+export default a;
+export {b};
+export {c};
+export {d};
