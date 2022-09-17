@@ -1,81 +1,103 @@
-import React, { useState } from 'react'
+import React from 'react';
 
-export default function About() {
+export default function About(props) {
 
-    const [myStyle, setMyStyle] = useState({
-        color: 'black',
-        backgroundColor: 'white'
-    })
-
-    const [btntext, setBtnText] = useState("Enable Dark Mode")
-    
-    const toggleStyle = ()=>{
-        if(myStyle.color === 'black'){
-            setMyStyle({
-                color: 'white',
-                backgroundColor: 'black',
-                border: '2px solid black'
-            })
-            setBtnText("Enable Light Mode")
-            
-        }
-        else{
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white',
-                border: '2px solid white'
-            })
-            setBtnText("Enable Dark Mode");
-        }
+    let myStyle = {
+        color: props.Mode === 'dark' ? 'white' : '#042743',
+        backgroundColor: props.Mode === 'dark' ? '#13466e' : 'white',
     }
 
+    // const [myStyle, setMyStyle] = useState({
+    //     color: 'black',
+    //     backgroundColor: 'white'
+    // })
+
+    // const [btntext, setBtnText] = useState("Enable Dark Mode")
+
+    // const toggleStyle = () => {
+    //     if (myStyle.color === 'black') {
+    //         setMyStyle({
+    //             color: 'white',
+    //             backgroundColor: 'black',
+    //             border: '2px solid black'
+    //         })
+    //         setBtnText("Enable Light Mode")
+
+    //     }
+    //     else {
+    //         setMyStyle({
+    //             color: 'black',
+    //             backgroundColor: 'white',
+    //             border: '2px solid white'
+    //         })
+    //         setBtnText("Enable Dark Mode");
+    //     }
+    // }
+
     return (
-        <div className="Container" style={myStyle}>
-            <h2 className="my-3"> About Us </h2>
+        <div className="container-1">
+            <h2 className="my-3" style={{ color: props.Mode === 'dark' ? 'white' : '#042743' }}> About Us </h2>
             <div className="accordion" id="accordionExample" style={myStyle}>
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingOne">
-                        <button className="accordion-button" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            Accordion Item #1
+                        <button className="accordion-button" style={myStyle} type="button" data-bs-toggle="collapse"
+                         data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <strong>Terms and Conditions</strong>
                         </button>
                     </h2>
-                    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+
+                    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne"
+                     data-bs-parent="#accordionExample">
                         <div className="accordion-body" style={myStyle}>
-                            <strong>This is the first item's accordion body.</strong> It is shown by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            A comprehensive Terms and Conditions agreement is vital to your online business’s long-term
+                            success and security, as it outlines the rules that you and your users must obey. Not having
+                            terms and conditions will leave you vulnerable to abusive users, intellectual property theft,
+                            and unnecessary litigation.
                         </div>
                     </div>
                 </div>
+
+
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingTwo">
-                        <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                            Accordion Item #2
+                        <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse"
+                         data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <strong>Policy</strong>
                         </button>
                     </h2>
-                    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+
+                    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo"
+                     data-bs-parent="#accordionExample">
                         <div className="accordion-body" style={myStyle}>
-                            <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            A Privacy Policy is a statement or a legal document that states how a company or website
+                            collects, handles and processes data of its customers and visitors. It explicitly describes
+                            whether that information is kept confidential, or is shared with or sold to third parties.
                         </div>
                     </div>
                 </div>
+
+
                 <div className="accordion-item">
                     <h2 className="accordion-header" id="headingThree">
-                        <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                            Accordion Item #3
+                        <button className="accordion-button collapsed" style={myStyle} type="button" data-bs-toggle="collapse"
+                         data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <strong>Contact Us</strong>
                         </button>
                     </h2>
-                    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree"
+                     data-bs-parent="#accordionExample">
                         <div className="accordion-body" style={myStyle}>
-                            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classNamees that we use to style each element. These classNamees control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+                            If you're looking for a sales-oriented approach, you can use this one from IMPACT's Contact Us page.
+                            It gets the sales process moving right away by encouraging users to enter their email address to learn
+                            more about the company and its offers.
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div className="container">
-            
-            <button type="button" onClick={toggleStyle} className="btn btn-secondary mx-2 my-2">{btntext}</button>
-
-            </div>
+            {/* <div className="container-2">
+                <button type="button" onClick={toggleStyle} className="btn btn-secondary mx-2 my-2">{btntext}</button>
+            </div> */}
         </div>
     )
 }
